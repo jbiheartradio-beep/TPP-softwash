@@ -12,6 +12,7 @@
             --dark-bg: #0b0b0b;
             --card-bg: #141414;
             --text-light: #ffffff;
+            --pill-red: #ff0000;
         }
 
         * {
@@ -115,7 +116,7 @@
             gap: 35px;
         }
 
-        /* Centralized Action Box */
+        /* Centralized Contact/CTA Cards */
         .cta-box {
             display: flex;
             flex-direction: column;
@@ -201,7 +202,7 @@
 
         .service-item {
             background: #000;
-            border: 3px solid #ff0000; /* Red capsule borders from flyer */
+            border: 3px solid var(--pill-red); /* Red capsule borders from flyer */
             border-radius: 50px;
             padding: 16px 30px;
             font-size: 1.25rem;
@@ -229,6 +230,78 @@
             margin-left: 20px;
         }
 
+        /* Form Styling Elements */
+        .form-heading {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .contact-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #bbb;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: #000;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 12px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--neon-green);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            background-color: transparent;
+            border: 3px solid var(--pill-red);
+            color: #fff;
+            padding: 15px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--pill-red);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -250,7 +323,7 @@
             <div class="bar empty"></div>
         </div>
 
-        <!-- High-Quality Logo Image File (706857955_122166777908962245_3284893302959232876_n.jpg) -->
+        <!-- Official Logo Image File -->
         <img src="706857955_122166777908962245_3284893302959232876_n.jpg" alt="TPP Soft Wash Logo" class="logo-img">
 
         <h1 class="hero-title">
@@ -292,6 +365,35 @@
             <div class="service-item"><span>Roofs & Roof Cleaning</span></div>
             <div class="service-item"><span>Decks & Fences</span></div>
             <div class="service-item"><span>Commercial & Residential</span></div>
+        </section>
+
+        <!-- Contact Me Now Form Box -->
+        <section class="cta-box" style="align-items: stretch;">
+            <h2 class="form-heading">Contact Me Now</h2>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Form submitted! (We will link this up to your inbox later)');">
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="734-555-0123" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <input type="text" id="service" class="form-input" placeholder="e.g. House Wash & Driveway">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message / Details</label>
+                    <textarea id="message" class="form-input" placeholder="Tell us about the project..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Request</button>
+            </form>
         </section>
 
     </main>
